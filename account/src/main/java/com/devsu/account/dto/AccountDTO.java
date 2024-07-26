@@ -1,14 +1,12 @@
 package com.devsu.account.dto;
 
-import jakarta.persistence.Column;
-
 public class AccountDTO {
     public static final int TYPE_AHORRO = 0;
     public static final int TYPE_CORRIENTE = 1;
 
     private int id;
     private int accountNumber;
-    private int type;
+    private String type;
     private int initialBalance;
     private boolean status;
     private int clientId;
@@ -26,10 +24,10 @@ public class AccountDTO {
     }
 
     public int getType() {
-        return type;
+        return type.equals("Ahorro") ? TYPE_AHORRO : TYPE_CORRIENTE;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
