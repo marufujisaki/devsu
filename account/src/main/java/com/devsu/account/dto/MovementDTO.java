@@ -1,48 +1,21 @@
-package com.devsu.account.entities;
+package com.devsu.account.dto;
 
-import jakarta.persistence.*;
-
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "movement")
-public class Movement implements Serializable {
+public class MovementDTO implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+    public static final int TYPE_WITHDRAW = 0;
+    public static final int TYPE_DEPOSIT = 1;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "movement_id")
     private int id;
-
-    @Column(name = "date")
     private Date date;
-
-    @Column(name = "type")
     private int type;
-
-    @Column(name = "value")
     private int value;
-
-    @Column(name = "initial_balance")
     private int initialBalance;
-
-    @Column(name = "current_balance")
     private int currentBalance;
-
-    @Column(name = "status")
     private boolean status;
-
-    @Column(name = "account_id")
     private int accountId;
-
-    public Movement() {
-        // empty constructor
-    }
-    public Movement(Date date, int type, int value, int initialBalance, int currentBalance, boolean status, int accountId) {}
 
     public int getId() {
         return id;

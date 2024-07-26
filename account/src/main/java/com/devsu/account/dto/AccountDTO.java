@@ -1,40 +1,17 @@
-package com.devsu.account.entities;
+package com.devsu.account.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-import java.io.Serial;
-import java.io.Serializable;
+public class AccountDTO {
+    public static final int TYPE_AHORRO = 0;
+    public static final int TYPE_CORRIENTE = 1;
 
-@Entity
-@Table(name= "account")
-public class Account implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="account_id")
     private int id;
-
-    @Column(name = "account_number")
     private int accountNumber;
-
-    @Column(name = "type")
     private int type;
-
-    @Column(name = "initial_balance")
     private int initialBalance;
-
-    @Column(name = "status")
     private boolean status;
-
-    @Column(name = "client_id")
     private int clientId;
-
-    public Account() {}
-
-    public Account(int accountNumber, int type, int initialBalance, boolean status, int clientId) {}
 
     public int getId() {
         return id;
