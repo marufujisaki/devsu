@@ -4,4 +4,9 @@ import com.devsu.account.entities.Movement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MovementRepository extends JpaRepository<Movement, Integer> {
+
+    Movement findLastMovementByAccountId(int accountId);
+
+    int countMovementsByAccountId(int accountId);
+
 }

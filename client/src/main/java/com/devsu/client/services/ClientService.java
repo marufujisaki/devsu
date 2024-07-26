@@ -16,20 +16,21 @@ public class ClientService {
         this.clientDao = clientDao;
     }
 
-    public List<Client> getAllClients() {
-        return clientDao.findAll();
+    public List<ClientDTO> getAllClients() {
+        return clientDao.findAll().stream().map(x -> new ClientDTO(x.getId(), x.getPassword(), x.isStatus(), x.getPersonId(), x.getName(), x.getAge(), x.getGenre(), x.getIdentification(), x.getPhone(), x.getAddress())).toList();
     }
 
     public Client getClientById(int id) {
         return clientDao.findById(id);
     }
 
-    public Client createClient(ClientDTO dto) {
+    public ClientDTO createClient(ClientDTO dto) {
         Client client = new Client(dto.getPassword(), dto.isStatus(), dto.getAddress(), dto.getName(), dto.getAge(), dto.getGenre(), dto.getIdentification(), dto.getPhone());
-        return clientDao.save(client);
+        clientDao.save(client);
+        return new ClientDTO(client.getId(),client.getPassword(),client.isStatus(),client.getPersonId(),client.getName(),client.getAge(),client.getGenre(),client.getIdentification(),client.getPhone(),client.getAddress());
     }
 
-    public Client updateClient(int id, ClientDTO clientDetails) {
+    public ClientDTO updateClient(int id, ClientDTO clientDetails) {
         Client client = clientDao.findById(id);
         if (client != null) {
             client.setName(clientDetails.getName());
@@ -40,7 +41,8 @@ public class ClientService {
             client.setIdentification(clientDetails.getIdentification());
             client.setStatus(clientDetails.isStatus());
             client.setPassword(clientDetails.getPassword());
-            return clientDao.save(client);
+            clientDao.save(client);
+            return new ClientDTO(client.getId(),client.getPassword(),client.isStatus(),client.getPersonId(),client.getName(),client.getAge(),client.getGenre(),client.getIdentification(),client.getPhone(),client.getAddress());
         } else {
             return null;
         }

@@ -34,7 +34,13 @@ public class Account implements Serializable {
 
     public Account() {}
 
-    public Account(int accountNumber, int type, int initialBalance, boolean status, int clientId) {}
+    public Account(int accountNumber, int type, int initialBalance, boolean status, int clientId) {
+        this.accountNumber = accountNumber;
+        this.type = type;
+        this.initialBalance = initialBalance;
+        this.status = status;
+        this.clientId = clientId;
+    }
 
     public int getId() {
         return id;

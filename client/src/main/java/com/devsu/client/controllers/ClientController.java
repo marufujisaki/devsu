@@ -3,6 +3,7 @@ package com.devsu.client.controllers;
 import com.devsu.client.dto.ClientDTO;
 import com.devsu.client.entities.Client;
 import com.devsu.client.services.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,18 +20,18 @@ public class ClientController {
     }
 
     @GetMapping
-    public List<Client> getAllClients() {
+    public List<ClientDTO> getAllClients() {
         return clientService.getAllClients();
     }
 
     @PostMapping
-    public Client createClient(@RequestBody ClientDTO client) {
+    public ClientDTO createClient(@Valid @RequestBody ClientDTO client) {
         return clientService.createClient(client);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Client> updateClient(@PathVariable int id, @RequestBody ClientDTO clientDetails) {
-        Client client = clientService.updateClient(id,clientDetails);
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable int id, @Valid @RequestBody ClientDTO clientDetails) {
+        ClientDTO client = clientService.updateClient(id, clientDetails);
         if (client != null) {
             return ResponseEntity.ok(client);
         } else {

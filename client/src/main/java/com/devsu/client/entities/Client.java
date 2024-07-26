@@ -1,6 +1,7 @@
 package com.devsu.client.entities;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.io.Serializable;
 

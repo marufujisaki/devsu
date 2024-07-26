@@ -3,6 +3,7 @@ package com.devsu.account.controllers;
 import com.devsu.account.dto.AccountDTO;
 import com.devsu.account.entities.Account;
 import com.devsu.account.services.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,18 +20,18 @@ public class AccountController {
     }
 
     @GetMapping
-    public List<Account> getAllAccounts() {
+    public List<AccountDTO> getAllAccounts() {
         return accountService.getAllAccounts();
     }
 
     @PostMapping
-    public Account createAccount(@RequestBody AccountDTO account) {
+    public AccountDTO createAccount(@Valid @RequestBody AccountDTO account) {
         return accountService.createAccount(account);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Account> updateAccount(@PathVariable int id, @RequestBody AccountDTO accountDetails) {
-        Account account = accountService.updateAccount(id, accountDetails);
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable int id, @Valid @RequestBody AccountDTO accountDetails) {
+        AccountDTO account = accountService.updateAccount(id, accountDetails);
         if (account != null) {
             return ResponseEntity.ok(account);
         } else {

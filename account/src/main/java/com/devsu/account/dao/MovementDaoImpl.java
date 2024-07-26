@@ -33,4 +33,12 @@ public class MovementDaoImpl implements MovementDao {
     public void deleteById(int id) {
         movementRepository.deleteById(id);
     }
+
+    @Override
+    public Movement findLastMovementByAccountId(int id) { return movementRepository.findLastMovementByAccountId(id); }
+
+    @Override
+    public int countMovementsByAccountId(int accountId) {
+        return movementRepository.countMovementsByAccountId(accountId);
+    }
 }
