@@ -24,6 +24,8 @@ public class ClientDTO implements Serializable {
     @NotNull
     private String address;
 
+    public ClientDTO() {}
+
     public ClientDTO(int clientId, String password, boolean status, int personId, String name, int age, String genre, String identification, String phone, String address) {
         this.clientId = clientId;
         this.password = password;
