@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "188abcda-70da-444d-8e0a-9c18f08e62f7",
+		"name": "DEVSU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23220183",
+		"_collection_link": "https://crud-team-9547.postman.co/workspace/CRUD-team-Workspace~f1c8a368-acde-4a21-86b4-8501238ddb7b/collection/23220183-188abcda-70da-444d-8e0a-9c18f08e62f7?action=share&source=collection_link&creator=23220183"
+	},
+	"item": [
+		{
+			"name": "CLIENTES",
+			"item": [
+				{
+					"name": "SELECT ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "NEW CLIENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": 1234,\r\n  \"status\": true,\r\n  \"name\": \"Saul Landaeta\",\r\n  \"age\": 23,\r\n  \"genre\": \"F\",\r\n  \"identification\": 28094547,\r\n  \"phone\": \"04140483325\",\r\n  \"address\": \"Valencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CLIENT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": 1234,\r\n  \"status\": true,\r\n  \"name\": \"Saul Landaeta\",\r\n  \"age\": 23,\r\n  \"genre\": \"M\",\r\n  \"identification\": 28094547,\r\n  \"phone\": \"04140483325\",\r\n  \"address\": \"Valencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/clientes/2"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CLIENT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/clientes/3"
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD Clientes"
+		},
+		{
+			"name": "CUENTAS",
+			"item": [
+				{
+					"name": "SELECT ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/cuentas"
+					},
+					"response": []
+				},
+				{
+					"name": "NEW ACCOUNT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": 2132123,\r\n  \"type\": \"Corriente\",\r\n  \"initialBalance\": 0,\r\n  \"status\": true,\r\n  \"clientId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cuentas"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE ACCOUNT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": 2133333,\r\n  \"type\": \"Corriente\",\r\n  \"initialBalance\": 10,\r\n  \"status\": true,\r\n  \"clientId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cuentas/5"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ACCOUNT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cuentas/5"
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD cuentas"
+		},
+		{
+			"name": "MOVIMIENTOS",
+			"item": [
+				{
+					"name": "SELECT ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "NEW MOVEMENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"28/07/2024\",\r\n    \"type\": \"Deposito\",\r\n    \"accountId\": 1,\r\n    \"value\": 200,\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE MOVEMENT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"28/07/2024\",\r\n    \"type\": \"Retiro\",\r\n    \"accountId\": 1,\r\n    \"value\": -10,\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/movimientos/1"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE MOVEMENT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/movimientos/5"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REPORTS",
+			"item": [
+				{
+					"name": "GET EDC",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/reportes?fecha=14/03/2024-26/08/2024&clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "14/03/2024-26/08/2024"
+								},
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
