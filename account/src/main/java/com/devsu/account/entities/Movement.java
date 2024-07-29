@@ -42,7 +42,15 @@ public class Movement implements Serializable {
     public Movement() {
         // empty constructor
     }
-    public Movement(Date date, int type, int value, int initialBalance, int currentBalance, boolean status, int accountId) {}
+    public Movement(Date date, int type, int value, int initialBalance, int currentBalance, boolean status, int accountId) {
+        this.date = date;
+        this.type = type;
+        this.value = value;
+        this.initialBalance = initialBalance;
+        this.currentBalance = currentBalance;
+        this.status = status;
+        this.accountId = accountId;
+    }
 
     public int getId() {
         return id;

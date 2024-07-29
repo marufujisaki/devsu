@@ -20,10 +20,10 @@ public class AccountDTO {
     @NotNull
     private int clientId;
 
-    public AccountDTO(int id, int accountNumber, int type, int initialBalance, boolean status, int clientId) {
+    public AccountDTO(int id, int accountNumber, String type, int initialBalance, boolean status, int clientId) {
         this.id = id;
         this.accountNumber = accountNumber;
-        this.type = type == TYPE_AHORRO ? AHORRO : CORRIENTE;
+        this.type = type;
         this.initialBalance = initialBalance;
         this.status = status;
         this.clientId = clientId;

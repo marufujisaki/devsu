@@ -1,13 +1,8 @@
 package com.devsu.account.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class MovementDTO implements Serializable {
 
@@ -18,9 +13,7 @@ public class MovementDTO implements Serializable {
 
     private final int id;
     @NotNull
-    @JsonSerialize(as = Date.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private Date date;
+    private String date;
     @NotNull
     private String type;
     @NotNull
@@ -32,7 +25,7 @@ public class MovementDTO implements Serializable {
     @NotNull
     private int accountId;
 
-    public MovementDTO(int id, Date date, String type, int value, int initialBalance, int currentBalance, boolean status, int accountId) {
+    public MovementDTO(int id, String date, String type, int value, int initialBalance, int currentBalance, boolean status, int accountId) {
         this.id = id;
         this.date = date;
         this.type = type;
@@ -47,11 +40,11 @@ public class MovementDTO implements Serializable {
         return id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

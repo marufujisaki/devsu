@@ -16,7 +16,7 @@ public class AccountService {
     }
 
     public List<AccountDTO> getAllAccounts() {
-        return accountDao.findAll().stream().map(x -> new AccountDTO(x.getId(),x.getAccountNumber(),x.getType(),x.getInitialBalance(),x.isStatus(),x.getClientId())).toList();
+        return accountDao.findAll().stream().map(x -> new AccountDTO(x.getId(),x.getAccountNumber(),x.getType() == AccountDTO.TYPE_AHORRO ? AccountDTO.AHORRO : AccountDTO.CORRIENTE,x.getInitialBalance(),x.isStatus(),x.getClientId())).toList();
     }
 
     public Account getAccountById(int id) {
@@ -26,7 +26,7 @@ public class AccountService {
     public AccountDTO createAccount(AccountDTO dto) {
         Account account = new Account(dto.getAccountNumber(),dto.getType(),dto.getInitialBalance(),dto.isStatus(),dto.getClientId());
         accountDao.save(account);
-        return new AccountDTO(account.getId(),account.getAccountNumber(),account.getType(),account.getInitialBalance(),account.isStatus(),account.getClientId());
+        return new AccountDTO(account.getId(),account.getAccountNumber(),account.getType() == AccountDTO.TYPE_AHORRO ? AccountDTO.AHORRO : AccountDTO.CORRIENTE,account.getInitialBalance(),account.isStatus(),account.getClientId());
     }
 
     public AccountDTO updateAccount(int id, AccountDTO accountDetails) {
@@ -38,7 +38,7 @@ public class AccountService {
             account.setStatus(accountDetails.isStatus());
             account.setClientId(accountDetails.getClientId());
             accountDao.save(account);
-            return new AccountDTO(account.getId(),account.getAccountNumber(),account.getType(),account.getInitialBalance(),account.isStatus(),account.getClientId());
+            return new AccountDTO(account.getId(),account.getAccountNumber(),account.getType() == AccountDTO.TYPE_AHORRO ? AccountDTO.AHORRO : AccountDTO.CORRIENTE,account.getInitialBalance(),account.isStatus(),account.getClientId());
         } else {
             return null;
         }

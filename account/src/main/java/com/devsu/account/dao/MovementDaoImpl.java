@@ -1,9 +1,11 @@
 package com.devsu.account.dao;
 
 import com.devsu.account.entities.Movement;
+import com.devsu.account.entities.Report;
 import com.devsu.account.repositories.MovementRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -40,5 +42,10 @@ public class MovementDaoImpl implements MovementDao {
     @Override
     public int countMovementsByAccountId(int accountId) {
         return movementRepository.countMovementsByAccountId(accountId);
+    }
+
+    @Override
+    public List<Report> getReport(String from, String to, int clientId) {
+        return movementRepository.getReport(from, to, clientId);
     }
 }
